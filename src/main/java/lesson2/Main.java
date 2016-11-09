@@ -4,11 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+import static jdk.nashorn.internal.runtime.JSType.isNumber;
+
 public class Main {
 
     public static void main(String[] args) {
-        reverseWord("oleg");
-        checkBrackets("a{b(c[d]e)f}");
+
     }
 
     public static void reverseWord(String word) {
@@ -21,6 +22,45 @@ public class Main {
 
         System.out.println();
     }
+
+    // Homework!
+/*    public static void parseMath(String expr) {
+        Stack<Character> operands = new Stack<>();
+        Stack<Character> operators = new Stack<>();
+
+        for(int i = 0; i < expr.length(); i++) {
+            char cur = expr.charAt(i);
+            if(operators.size() > 0 && operands.size() > 1) {
+                int a = operands.pop();
+                int b = operands.pop();
+                char op = operators.pop();
+                int res = 0;
+                switch (op) {
+                    case '+':
+                        res = a + b;
+                        break;
+                    case '-':
+                        res = a - b;
+                        break;
+                    case '/':
+                        res = a / b;
+                        break;
+                    case '*':
+                        res = a * b;
+                        break;
+                }
+                operands.push((char) res);
+            }
+            else if(isNumber(cur)) {
+                operands.push(cur);
+            }
+            else if(cur == '+' || cur == '-' || cur == '/' || cur == '*') {
+                operators.push(cur);
+            }
+        }
+        System.out.println(operands.pop());
+
+    }*/
 
     public static void checkBrackets(String expr) {
         Map<Character,Character> brakets = new HashMap<>();
